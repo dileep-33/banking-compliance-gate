@@ -6,3 +6,4 @@ venv/
 *.egg-info/
 .env
 ci_reports/
+audit_log/*.jsonl

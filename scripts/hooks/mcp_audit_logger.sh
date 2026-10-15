@@ -22,7 +22,9 @@ tool_name = data.get("tool_name", "unknown")
 tool_input = data.get("tool_input", {})
 session_id = data.get("session_id", os.environ.get("CLAUDE_SESSION_ID", "unknown"))
 
-PII = [re.compile(r"\b[0-9]{10,16}\b")]
+PII = [
+    re.compile(r"(?<!\d)(?:\d[ -]?){12,18}\d(?!\d)")
+]
 
 def sanitize(val):
     if isinstance(val, str):
